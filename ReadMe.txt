@@ -1,22 +1,17 @@
-=============== Ability Tracker in C# (.NET Core 6.0) programmed by Gramr98 / Stefan from Q4 of 2022 until now. - Latest Change: 2025-03-02 ===============
+==== Ability Tracker in C# (.NET Core 6.0) programmed by Gramr98 / Stefan from Q4 of 2022 until now. - Latest Change: 2025-03-02 ====
 
-This application provides a powerful, feature-rich, but also still rather easy to use ability tracker for RS3. It works by 'hooking' to the official Windows OS Files, 
-reads the keyboard input (like any game), and then displays images of abilities that where manually mapped / configured in beforehand.
+This application provides a powerful, feature-rich, but also still rather easy to use ability tracker for RS3. It works by 'hooking' to the official Windows OS Files, reads the keyboard input (like any game), and then displays images of abilities that where manually mapped / configured in beforehand. This application has been implemented and tested with the Windows Versions "Windows 10 Home 22H2" to "Windows 11 Home 24H2".
 
-The tracker can also import ability data and images from the official Wiki by downloading the entire html page, automatically going throuigh the relevant tables and storing the relevant data into the JSON-Files. By doing this, you will overwrite all previous configured abilities and keybindings though. The User-Agent for these API calls can be found in the file 'GlobalApplicationSettings.cs'. But consider, that imported abilities from the wiki may not be 100% correct. In some cases, the boolean flag 'Can activate ability during GCD' or the Ability Cooldown may be set 
-wrongly and requires manual change in the JSON-Files before continuing configuring Keybindings and Profiles!
-=> Note: The Wiki Import doesn't currently work perfectly fine. The user must manually delete the mentioned data. This feature requires some bug fixes. Read the section 'TO DO (Known Bugs to fix)' below for more information.
+The tracker can also import ability data and images from the official Wiki by downloading the entire html page, automatically going throuigh the relevant tables and storing the relevant data into the JSON-Files. By doing this, you will overwrite all previous configured abilities and keybindings though. The User-Agent for these API calls can be found in the file 'GlobalApplicationSettings.cs'. But consider, that imported abilities from the wiki may not be 100% correct. In some cases, the boolean flag 'Can activate ability during GCD' or the Ability Cooldown may be set wrongly and requires manual change in the JSON-Files before continuing configuring Keybindings and Profiles!
+=> Note: The Wiki Import doesn't currently work perfectly fine. The user must manually delete the mentioned data. Read the section 'TO DO (Known Bugs to fix)' below for more information.
 
-Although I coded most of this tracker myself, the source code from Shaggy's Ability Tracker has been used as a template for the original basic logic. However, there isn't much left of their 
-code anymore, because the new features required a more complex implementation. But nonetheless, if he hadn't provided the code via github, I never would have started creating this tracker in the first place. Thank you for publicly providing your code for everyone to use for free!!! https://www.reddit.com/r/runescape/comments/no1la7/rs3_ability_tracker/ https://github.com/ShaggyHW/RS3AbilityTracker
-
-This application has been implemented and tested with the Windows Versions "Windows 10 Home 22H2" and "Windows 11 Home 24H2".
+Although I coded most of this tracker myself, the source code from Shaggy's Ability Tracker has been used as a template for the original basic logic. However, there isn't much left of their code anymore, because the new features required a more complex implementation. But nonetheless, if he hadn't provided the code via github, I never would have started creating this tracker in the first place. Thank you for publicly providing your code for everyone to use for free!!! https://www.reddit.com/r/runescape/comments/no1la7/rs3_ability_tracker/ https://github.com/ShaggyHW/RS3AbilityTracker
 
 Feel free to message me on GitHub or Discord (@gramr98stefan) if you have any questions or feedback.
 
 * * * * * * * * * * * * * * * * * * Known Bugs (To Fix): * * * * * * * * * * * * * * * * * *
 
-- !!! Since of a change from the Wiki-End from a short while ago, the import for certian abilities doesn't work properly anymore. For the time being I recommend going through all abilities manually and checking the correct import of abilities. Whenever an ability is missing, add a .png-File to the folder "./Images/Abilities" and then create and configure the ability in the application.
+- !!! Since a change in the Wiki from a short while ago, the import for certain abilities doesn't work properly anymore. For the time being I recommend going through all abilities manually and checking the correct import of abilities. Whenever an ability is missing, add a .png-File to the folder "./Images/Abilities" and then create and configure the ability in the application.
 
 - When starting the application and it crashes during start, it may occure in some instances that some of the JSON-Files in the folder "./Data" will become empty or even entirely deleted!
   => WORKAROUND: Until there is a fix, I recommend to make a backup of those .json-Files whenever you make a bigger change to the data (Abilities, Bars, Keybindings and Profiles).
