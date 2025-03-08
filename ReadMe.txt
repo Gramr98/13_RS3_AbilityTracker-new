@@ -1,4 +1,4 @@
-==== Ability Tracker in C# (.NET Core 6.0) programmed by Gramr98 / Stefan from Q4 of 2022 until now. - Latest Change: 2025-03-02 ====
+Ability Tracker in C# (.NET Core 6.0) programmed by Gramr98 / Stefan from Q4 of 2022 until now.
 
 This application provides a powerful, feature-rich, but also still rather easy to use ability tracker for RS3. It works by 'hooking' to the official Windows OS Files, reads the keyboard input (like any game), and then displays images of abilities that where manually mapped / configured in beforehand. This application has been implemented and tested with the Windows Versions "Windows 10 Home 22H2" to "Windows 11 Home 24H2".
 
