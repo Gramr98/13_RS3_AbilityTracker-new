@@ -1,0 +1,221 @@
+﻿<Window x:Class="WPFUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFUI"
+        mc:Ignorable="d" Background="{DynamicResource backgroundImage}" Title="RS3 Ability Tracker" Height="640" Width="750">
+    <Grid>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+        <!-- * * * * * * * * * * General Definition of the Applications Layout * * * * * * * * * * * * * * * * * -->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+        <!-- * * * * * * * * * * * * * * * * * * * * Data-Area * * * * * * * * * * * * * * * * * * * * * * * * * -->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Style="{DynamicResource Header_DefaultStyling}">- Data Management -</Label>
+        <Button Grid.Row="1" Grid.Column="3" x:Name="btn_OpenExplorer" Foreground="Blue" Style="{DynamicResource SecondaryButton}" Content="Open App Folder" Margin="2" HorizontalAlignment="Right" VerticalAlignment="Top" Width="140" Click="btn_OpenExplorer_Click" />
+        <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Margin="10px">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Grid.Column="1" x:Name="btn_OpenAbilityMapping" Content="Abilities" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Click="btn_OpenAbilityMapping_Click" />
+            <Button Grid.Row="0" Grid.Column="2" x:Name="btn_OpenBarMapping" Content="Bars" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Click="btn_OpenBarMapping_Click" />
+            <Button Grid.Row="0" Grid.Column="3" x:Name="btn_OpenKeybindMapping" Content="Keybinds" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Click="btn_OpenKeybindMapping_Click" />
+        </Grid>
+
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+        <!-- * * * * * * * * * * * * * * * * * * * Settings-Area * * * * * * * * * * * * * * * * * * * * * * * * -->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+        <Label Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Style="{DynamicResource Header_DefaultStyling}">- Application Settings -</Label>
+        <Grid Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Margin="10px">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <CheckBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" x:Name="cbx_trackCD" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="5">Track Ability Cooldowns?</CheckBox>
+            <CheckBox Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" x:Name="cbx_trackGCD" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="5">Track Global Cooldown?</CheckBox>
+            <CheckBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" x:Name="cbx_HasDoubleSurge" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="5">Dbl Surge / Dbl Escape?</CheckBox>
+            <CheckBox Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" x:Name="cbx_HasMobilePerk" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="5">Mobile Perk?</CheckBox>
+            <CheckBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" x:Name="cbx_displayOnTop" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="5">Display always on top?</CheckBox>
+            <CheckBox Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" x:Name="cbx_canResize" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" Checked="CanResize_Checked" Unchecked="CanResize_Unchecked" Margin="5">Can Resize?</CheckBox>
+
+            <StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" Orientation="Horizontal" Margin="0,10,10,10">
+                <CheckBox x:Name="cbx_displayBleedTimerForMagicT95DW" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="5">Display Bleed Timer (for Magic T95 DW Passive): </CheckBox>
+                <TextBox x:Name="tbx_bleedTimerForMagicT95DW" Width="100" Margin="5" TextChanged="tbx_BleedTimerForMagicT95DW_TextChanged"/>
+                <Label Content="s" HorizontalAlignment="Left" />
+            </StackPanel>
+            <Label Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" x:Name="lbl_bleedTimerForMagicT95DW" Content="(the above textbox can be left empty is the checkbox is not set)" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+            <StackPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4" Orientation="Horizontal" Margin="0,10,10,10">
+                <Label Content="GCD Reduction:" HorizontalAlignment="Left"/>
+                <TextBox x:Name="tbx_GCD_Reduction" TextChanged="tbx_GCD_Reduction_TextChanged" Width="150" Margin="5"/>
+                <Label Content="ms" HorizontalAlignment="Left" />
+                <Label x:Name="lbl_GCD_Reduction_ResultInfo" Content="" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3" VerticalAlignment="Bottom">
+            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+        </StackPanel>
+        <Label Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Style="{DynamicResource Header_DefaultStyling}">- Execute -</Label>
+        <Button Grid.Row="5" Grid.Column="3" x:Name="btn_Reload" Foreground="Blue" Style="{DynamicResource SecondaryButton}" Content="Refresh Data" Margin="2" HorizontalAlignment="Right" VerticalAlignment="Top" Width="150" Click="btn_Reload_Click" />
+        <Grid Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" Margin="10px">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom">Select a Profile:</Label>
+            <ComboBox Grid.Row="1" Grid.Column="1" x:Name="cbx_Profile" Margin="5" SelectionChanged="cbx_Profile_SelectionChanged" FontSize="15">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock VerticalAlignment="Center" Margin="5,0,0,0" Text="{Binding InfoText, Mode=OneWay}"/>
+                            <!--<TextBlock VerticalAlignment="Center" Margin="5,0,0,0" Text="{Binding BarCount, StringFormat=' ({0} bars, '}"/>
+                            <TextBlock VerticalAlignment="Center" Margin="5,0,0,0" Text="{Binding AbilityCount, StringFormat=' {0} keys)'}"/>-->
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Label Grid.Row="0" Grid.Column="2" VerticalAlignment="Bottom">Select a Combat Mode:</Label>
+            <ComboBox Grid.Row="1" Grid.Column="2" x:Name="cbx_CombatMode" Margin="5">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="25px" Height="25px" Source="{Binding Img}"/>
+                            <TextBlock VerticalAlignment="Center" Margin="5,0,0,0" Text="{Binding Name}" FontSize="15"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Button x:Name="btn_StartTracking" Grid.Row="0" Grid.Column="3" Foreground="Green" Margin="5" Content="Start" VerticalAlignment="Center" Width="150" Click="btn_StartTracking_Click" />
+            <Button x:Name="btn_CloseTracker" Grid.Row="1" Grid.Column="3" Visibility="Hidden" Margin="5" Foreground="Green" Content="Close Tracker" VerticalAlignment="Center" Width="150" Click="btn_CloseTracker_Click" />
+            <Button x:Name="btn_Exit" Grid.Row="2" Grid.Column="3" Margin="5" Foreground="Red" Content="Save &amp; Exit" VerticalAlignment="Center" Width="150" Click="btn_Exit_Click" />
+        </Grid>
+
+    </Grid>
+</Window>
+<!-- Old UI Implementation -->
+<!--<Window x:Class="WPFUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFUI"
+        mc:Ignorable="d" Background="{DynamicResource backgroundImage}" Title="RS3 Ability Tracker" Height="430" Width="890">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Style="{DynamicResource Header_DefaultStyling}">Settings</Label>
+        <Label Grid.Column="3" Grid.Row="1" Style="{DynamicResource Header_DefaultStyling}">Execute</Label>
+
+        <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="1" Grid.RowSpan="8" HorizontalAlignment="Right">
+            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+        </StackPanel>
+
+        <Button Grid.Row="2" Grid.Column="1" x:Name="btn_OpenAbilityMapping" Content="Abilities" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Click="btn_OpenAbilityMapping_Click" />
+        <Button Grid.Row="3" Grid.Column="1" x:Name="btn_OpenBarMapping" Content="Bars" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Click="btn_OpenBarMapping_Click" />
+        <Button Grid.Row="4" Grid.Column="1" x:Name="btn_OpenKeybindMapping" Content="Keybinds" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Click="btn_OpenKeybindMapping_Click" />
+        <Label Grid.Row="5" Grid.Column="1" Content="GCD Reduction (ms):" VerticalAlignment="Bottom" Margin="10,0,0,0" HorizontalAlignment="Center"/>
+        <TextBox Grid.Row="6" Grid.Column="1" x:Name="tbx_GCD_Reduction" Width="150" Margin="0,0,0,15"/>
+        <Button Grid.Row="7" Grid.Column="1" x:Name="btn_Reload" Foreground="Blue" Content="Reload Data" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Click="btn_Reload_Click" />
+        <Button Grid.Row="8" Grid.Column="1" x:Name="btn_OpenExplorer" Foreground="Blue" Content="Open Folder" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Click="btn_OpenExplorer_Click" />
+
+        <CheckBox Grid.Row="2" Grid.Column="2" x:Name="cbx_trackCD" HorizontalAlignment="Left" VerticalAlignment="Center">Track Ability Cooldowns?</CheckBox>
+        <CheckBox Grid.Row="3" Grid.Column="2" x:Name="cbx_trackGCD" HorizontalAlignment="Left" VerticalAlignment="Center">Track Global Cooldown?</CheckBox>
+        <CheckBox Grid.Row="4" Grid.Column="2" x:Name="cbx_displayOnTop" HorizontalAlignment="Left" VerticalAlignment="Center">Display always on top?</CheckBox>
+        <CheckBox Grid.Row="5" Grid.Column="2" x:Name="cbx_canResize" HorizontalAlignment="Left" VerticalAlignment="Center" Checked="CanResize_Checked" Unchecked="CanResize_Unchecked">Can Resize?</CheckBox>
+        <CheckBox Grid.Row="6" Grid.Column="2" x:Name="cbx_HasDoubleSurge" HorizontalAlignment="Left" VerticalAlignment="Center">Dbl Surge / Dbl Escape?</CheckBox>
+        <CheckBox Grid.Row="7" Grid.Column="2" x:Name="cbx_HasMobilePerk" HorizontalAlignment="Left" VerticalAlignment="Center">Mobile Perk?</CheckBox>
+
+        <Label Grid.Row="2" Grid.Column="3" VerticalAlignment="Bottom" Margin="10,0,0,0">Select a Profile:</Label>
+        <ComboBox Grid.Row="3" Grid.Column="3" x:Name="cbx_Profile" Margin="10,0,5,15" SelectionChanged="cbx_Profile_SelectionChanged" FontSize="15">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center" Margin="5,0,0,0" Text="{Binding ProfileName}"/>
+                        <TextBlock VerticalAlignment="Center" Margin="5,0,0,0" Text="{Binding ObjectCount, StringFormat=' ({0} keys)'}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Label Grid.Row="4" Grid.Column="3" VerticalAlignment="Bottom" Margin="10,0,0,0">Select a Combat Mode:</Label>
+        <ComboBox Grid.Row="5" Grid.Column="3" x:Name="cbx_CombatMode" Margin="10,0,5,15">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="25px" Height="25px" Source="{Binding Img}"/>
+                        <TextBlock VerticalAlignment="Center" Margin="5,0,0,0" Text="{Binding Name}" FontSize="15"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Button x:Name="btn_StartTracking" Grid.Row="6" Grid.Column="3" Foreground="Green" Margin="5" Content="Start" VerticalAlignment="Center" Width="150" Click="btn_StartTracking_Click" />
+        <Button x:Name="btn_CloseTracker" Visibility="Hidden" Grid.Row="7" Grid.Column="3" Margin="5" Foreground="Green" Content="Close Tracker" VerticalAlignment="Center" Width="150" Click="btn_CloseTracker_Click" />
+        <Button x:Name="btn_Exit" Grid.Row="8" Grid.Column="3" Margin="5" Foreground="Red" Content="Save &amp; Exit" VerticalAlignment="Center" Width="150" Click="btn_Exit_Click" />
+    </Grid>
+</Window>-->

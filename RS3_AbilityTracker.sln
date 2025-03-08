@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WindowsKeyHooker_WinForms", "WindowsKeyHooker_WinForms\WindowsKeyHooker_WinForms.csproj", "{FD1F5E82-A3E4-4FEA-BDCF-2235F4129532}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPFUI", "WPFUI\WPFUI.csproj", "{CC275E8B-D247-4C40-9AF1-D90C0188B3A5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbilityTrackerLibrary", "AbilityTrackerLibrary\AbilityTrackerLibrary.csproj", "{A0FBD076-DD3D-46F8-9377-DA9D27EFD8AB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projektmappenelemente", "Projektmappenelemente", "{77CA0CCA-CF5B-49E5-94CF-9260691A49D1}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.txt = ReadMe.txt
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IncorrectCooldown_Conversion_Fix", "IncorrectCooldown_Conversion_Fix\IncorrectCooldown_Conversion_Fix.csproj", "{7CF400D1-C9E2-4A1B-82D6-206998281781}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD1F5E82-A3E4-4FEA-BDCF-2235F4129532}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD1F5E82-A3E4-4FEA-BDCF-2235F4129532}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD1F5E82-A3E4-4FEA-BDCF-2235F4129532}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD1F5E82-A3E4-4FEA-BDCF-2235F4129532}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC275E8B-D247-4C40-9AF1-D90C0188B3A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC275E8B-D247-4C40-9AF1-D90C0188B3A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC275E8B-D247-4C40-9AF1-D90C0188B3A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC275E8B-D247-4C40-9AF1-D90C0188B3A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0FBD076-DD3D-46F8-9377-DA9D27EFD8AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0FBD076-DD3D-46F8-9377-DA9D27EFD8AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0FBD076-DD3D-46F8-9377-DA9D27EFD8AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0FBD076-DD3D-46F8-9377-DA9D27EFD8AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CF400D1-C9E2-4A1B-82D6-206998281781}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CF400D1-C9E2-4A1B-82D6-206998281781}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CF400D1-C9E2-4A1B-82D6-206998281781}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CF400D1-C9E2-4A1B-82D6-206998281781}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CE9D3034-DF07-49B0-9A73-9555186982B7}
+	EndGlobalSection
+EndGlobal

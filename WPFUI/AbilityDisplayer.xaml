@@ -1,0 +1,118 @@
+﻿<Window x:Class="WPFUI.AbilityDisplayer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFUI"
+        mc:Ignorable="d"
+        Title="AbilityDisplayer" Background="{DynamicResource backgroundImage}" Height="144" Width="804" WindowStyle="None" ResizeMode="NoResize" MouseDown="Window_MouseDown">
+    <Grid>
+        <!--Height="110" Width="570"-->
+        <!--Height="110" Width="470"-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" x:Name="lbl_gcdInfo" Margin="5,0,0,0" Foreground="{DynamicResource Default_SecondaryColor}"  FontSize="11" Content="GCD: " VerticalAlignment="Center"/>
+        <!--<Label x:Name="lbl_profileInfo" Grid.Column="5" Grid.Row="0" Grid.ColumnSpan="4" Foreground="{DynamicResource Default_SecondaryColor}"  FontSize="11" Content="Current Profile: "/>-->
+        
+        <Label Grid.Column="3" Grid.Row="0" Grid.ColumnSpan="4" x:Name="lbl_bleedInfoTimerForMagicT95DW" Margin="5,0,0,0" Foreground="{DynamicResource Default_SecondaryColor}" FontSize="11" Content="Bleed Timer: - " VerticalAlignment="Center"/>
+        <StackPanel Grid.Column="5" Grid.Row="0" Grid.ColumnSpan="6" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0" >
+            <Label x:Name="lbl_styleInfo" Foreground="{DynamicResource Default_SecondaryColor}"  FontSize="11" Content="Current Style: " FontWeight="Bold"/>
+            <Image x:Name="imgCombatStyle" Width="20px" />
+        </StackPanel>
+        <Border Grid.Column="0" Grid.Row="1" BorderBrush="Yellow" BorderThickness="0.5" />
+        <Image x:Name="displayImg0" Grid.Column="0" Grid.Row="1" Margin="5" />
+        <local:CooldownLabel x:Name="displayCd0" Grid.Column="0" Foreground="White" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12" FontWeight="Bold"></local:CooldownLabel>
+
+        <Border Grid.Column="1" Grid.Row="1" BorderBrush="Yellow" BorderThickness="0.5" />
+        <Image x:Name="displayImg1" Grid.Column="1" Grid.Row="1" Margin="5" />
+        <local:CooldownLabel x:Name="displayCd1" Grid.Column="1" Foreground="White" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12" FontWeight="Bold"></local:CooldownLabel>
+
+        <Border Grid.Column="2" Grid.Row="1" BorderBrush="Yellow" BorderThickness="0.5" />
+        <Image x:Name="displayImg2" Grid.Column="2" Grid.Row="1" Margin="5" />
+        <local:CooldownLabel x:Name="displayCd2" Grid.Column="2" Foreground="White" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12" FontWeight="Bold"></local:CooldownLabel>
+
+        <Border Grid.Column="3" Grid.Row="1" BorderBrush="Yellow" BorderThickness="0.5" />
+        <Image x:Name="displayImg3" Grid.Column="3" Grid.Row="1" Margin="5" />
+        <local:CooldownLabel x:Name="displayCd3" Grid.Column="3" Foreground="White" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12" FontWeight="Bold"></local:CooldownLabel>
+
+        <Border Grid.Column="4" Grid.Row="1" BorderBrush="Yellow" BorderThickness="0.5" />
+        <Image x:Name="displayImg4" Grid.Column="4" Grid.Row="1" Margin="5" />
+        <local:CooldownLabel x:Name="displayCd4" Grid.Column="4" Foreground="White" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12" FontWeight="Bold"></local:CooldownLabel>
+
+        <Border Grid.Column="5" Grid.Row="1" BorderBrush="Yellow" BorderThickness="0.5" />
+        <Image x:Name="displayImg5" Grid.Column="5" Grid.Row="1" Margin="5" />
+        <local:CooldownLabel x:Name="displayCd5" Grid.Column="5" Foreground="White" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12" FontWeight="Bold"></local:CooldownLabel>
+
+        <Border Grid.Column="6" Grid.Row="1" BorderBrush="Yellow" BorderThickness="0.5" />
+        <Image x:Name="displayImg6" Grid.Column="6" Grid.Row="1" Margin="5" />
+        <local:CooldownLabel x:Name="displayCd6" Grid.Column="6" Foreground="White" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12" FontWeight="Bold"></local:CooldownLabel>
+
+        <Border Grid.Column="7" Grid.Row="1" BorderBrush="Yellow" BorderThickness="0.5" />
+        <Image x:Name="displayImg7" Grid.Column="7" Grid.Row="1" Margin="5" />
+        <local:CooldownLabel x:Name="displayCd7" Grid.Column="7" Foreground="White" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12" FontWeight="Bold"></local:CooldownLabel>
+
+        <Border Grid.Column="8" Grid.Row="1" BorderBrush="Yellow" BorderThickness="0.5" />
+        <Image x:Name="displayImg8" Grid.Column="8" Grid.Row="1" Margin="5" />
+        <local:CooldownLabel x:Name="displayCd8" Grid.Column="8" Foreground="White" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12" FontWeight="Bold"></local:CooldownLabel>
+
+        <Border Grid.Column="9" Grid.Row="1" BorderBrush="Yellow" BorderThickness="0.5" />
+        <Image x:Name="displayImg9" Grid.Column="9" Grid.Row="1" Margin="5" />
+        <local:CooldownLabel x:Name="displayCd9" Grid.Column="9" Foreground="White" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12" FontWeight="Bold"></local:CooldownLabel>
+
+        <Border Grid.Column="10" Grid.Row="1" BorderBrush="White" BorderThickness="2" />
+        <Image x:Name="displayImg10" Grid.Column="10" Grid.Row="1" Margin="5" />
+        <local:CooldownLabel x:Name="displayCd10" Grid.Column="10" Foreground="White" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="12" FontWeight="Bold"></local:CooldownLabel>
+
+        <Border Background="Black" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="11"></Border>
+        <Border Grid.Column="0" Grid.Row="2" BorderBrush="Yellow" BorderThickness="0.5">
+            <Label Foreground="{DynamicResource Text_DefaultColor}" FontSize="11" x:Name="displayName0" VerticalAlignment="Center" HorizontalAlignment="Center">0</Label>
+        </Border>
+        <Border Grid.Column="1" Grid.Row="2" BorderBrush="Yellow" BorderThickness="0.5">
+            <Label Foreground="{DynamicResource Text_DefaultColor}" FontSize="11" x:Name="displayName1" VerticalAlignment="Center" HorizontalAlignment="Center">1</Label>
+        </Border>
+        <Border Grid.Column="2" Grid.Row="2" BorderBrush="Yellow" BorderThickness="0.5">
+            <Label Foreground="{DynamicResource Text_DefaultColor}" FontSize="11" x:Name="displayName2" VerticalAlignment="Center" HorizontalAlignment="Center">2</Label>
+        </Border>
+        <Border Grid.Column="3" Grid.Row="2" BorderBrush="Yellow" BorderThickness="0.5">
+            <Label Foreground="{DynamicResource Text_DefaultColor}" FontSize="11" x:Name="displayName3" VerticalAlignment="Center" HorizontalAlignment="Center">3</Label>
+        </Border>
+        <Border Grid.Column="4" Grid.Row="2" BorderBrush="Yellow" BorderThickness="0.5">
+            <Label Foreground="{DynamicResource Text_DefaultColor}" FontSize="11" x:Name="displayName4" VerticalAlignment="Center" HorizontalAlignment="Center">4</Label>
+        </Border>
+        <Border Grid.Column="5" Grid.Row="2" BorderBrush="Yellow" BorderThickness="0.5">
+            <Label Foreground="{DynamicResource Text_DefaultColor}" FontSize="11" x:Name="displayName5" VerticalAlignment="Center" HorizontalAlignment="Center">5</Label>
+        </Border>
+        <Border Grid.Column="6" Grid.Row="2" BorderBrush="Yellow" BorderThickness="0.5">
+            <Label Foreground="{DynamicResource Text_DefaultColor}" FontSize="11" x:Name="displayName6" VerticalAlignment="Center" HorizontalAlignment="Center">6</Label>
+        </Border>
+        <Border Grid.Column="7" Grid.Row="2" BorderBrush="Yellow" BorderThickness="0.5">
+            <Label Foreground="{DynamicResource Text_DefaultColor}" FontSize="11" x:Name="displayName7" VerticalAlignment="Center" HorizontalAlignment="Center">7</Label>
+        </Border>
+        <Border Grid.Column="8" Grid.Row="2" BorderBrush="Yellow" BorderThickness="0.5">
+            <Label Foreground="{DynamicResource Text_DefaultColor}" FontSize="11" x:Name="displayName8" VerticalAlignment="Center" HorizontalAlignment="Center">8</Label>
+        </Border>
+        <Border Grid.Column="9" Grid.Row="2" BorderBrush="Yellow" BorderThickness="0.5">
+            <Label Foreground="{DynamicResource Text_DefaultColor}" FontSize="11" x:Name="displayName9" VerticalAlignment="Center" HorizontalAlignment="Center">9</Label>
+        </Border>
+        <Border Grid.Column="10" Grid.Row="2" BorderBrush="White" BorderThickness="2">
+            <Label Foreground="{DynamicResource Text_DefaultColor}" FontSize="11" x:Name="displayName10" VerticalAlignment="Center" HorizontalAlignment="Center">10</Label>
+        </Border>
+    </Grid>
+</Window>

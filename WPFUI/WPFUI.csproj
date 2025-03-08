@@ -1,0 +1,71 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>Images\Logo.ico</ApplicationIcon>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <!--<PublishSingleFile>true</PublishSingleFile>
+    <DebugType>embedded</DebugType>-->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\background.png" />
+    <None Remove="Images\BarIcon_AllStyles.png" />
+    <None Remove="Images\Logo.ico" />
+    <None Remove="Images\Logo.png" />
+    <None Remove="Images\MenuItems\1345874.png" />
+    <None Remove="Images\MenuItems\CheckBoxGroup.png" />
+    <None Remove="Images\MenuItems\CheckBoxGroup.svg" />
+    <None Remove="Images\MenuItems\Delete.png" />
+    <None Remove="Images\MenuItems\Delete.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="Images\MenuItems\CheckBoxGroup.xaml" />
+    <Page Remove="Images\MenuItems\Delete.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\BarIcon_AllStyles.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Logo.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\MenuItems\CheckBoxGroup.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\MenuItems\CheckBoxGroup.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\MenuItems\CheckBoxGroup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\MenuItems\Delete.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\MenuItems\Delete.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\MenuItems\Delete.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AbilityTrackerLibrary\AbilityTrackerLibrary.csproj" />
+    <ProjectReference Include="..\WindowsKeyHooker_WinForms\WindowsKeyHooker_WinForms.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,269 @@
+﻿<Window x:Class="WPFUI.KeybindSettings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFUI"
+        mc:Ignorable="d"
+        Title="Keybind Settings" Background="{DynamicResource backgroundImage}" Height="700" Width="1200">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+        <TabControl Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Background="{DynamicResource backgroundImage}" x:Name="tabCtrl_Main">
+            <TabItem Header="Bar Assignments or Bar Keybindings" x:Name="tabItem_Bar">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="10"/>
+                    </Grid.RowDefinitions>
+                    
+                    <Label Grid.Row="1" Grid.Column="1" Margin="5">Select Bar (Source):</Label>
+                    <ComboBox Grid.Row="1" Grid.Column="2" Margin="0,7,0,7" x:Name="cbx_BarsToSelectForBarBinding">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="25px" Height="25px" Source="{Binding Img}"/>
+                                    <TextBlock VerticalAlignment="Center" Margin="5,0,0,0" Text="{Binding Name}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <Label Grid.Row="1" Grid.Column="3" Margin="5">Press Key:</Label>
+                    <TextBox Grid.Row="1" Grid.Column="4" Margin="5" IsReadOnly="true" x:Name="tbx_pressedKeyForBarBinding"></TextBox>
+
+                    <Label Grid.Row="1" Grid.Column="5" Margin="5">Key will switch to (Target):</Label>
+                    <ComboBox Grid.Row="1" Grid.Column="6" Margin="0,7,5,7" x:Name="cbx_BarsToSelectForDependantBarBinding">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="25px" Height="25px" Source="{Binding Img}"/>
+                                    <TextBlock VerticalAlignment="Center" Margin="5,0,0,0" Text="{Binding Name}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="5" Margin="5" x:Name="lbl_InfoMessageForBarBinding"></Label>
+                    <Button Grid.Row="2" Grid.Column="6" x:Name="btn_AddBarKeybinding" Content="Add Keybind" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Center" Width="140" Click="btn_AddBarKeybinding_Click"/>
+
+                    <DataGrid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="6" Margin="5" x:Name="dgr_BarList" AlternationCount="2" CellStyle="{StaticResource Body_Content_DataGrid_Centering}" 
+                              CanUserAddRows="false" CanUserDeleteRows="False" IsReadOnly="true" AutoGenerateColumns="False" VerticalScrollBarVisibility="Auto">
+                        <DataGrid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Activate / Deactivate Selection" Click="Context_Bars_ActivateSelection" IsCheckable="False">
+                                    <MenuItem.Icon>
+                                        <Image Source="./Images/MenuItems/CheckBoxGroup.png" />
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Header="Delete Selection" Click="Context_Bars_DeleteSelection">
+                                    <MenuItem.Icon>
+                                        <Image Source="./Images/MenuItems/Delete.png" />
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn CanUserSort="True" Width="80" Header="   Is activated?">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox IsChecked="{Binding IsActivatedForCurrentProfile, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="True"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn CanUserSort="False" Width="auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Width="25px" Height="25px" Source="{Binding Bar.Img}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn x:Name="AbilityBar" Header="Ability Bar (Source Bar)" Binding="{Binding Bar.Name}" Width="190" FontWeight="Bold" />
+                            <DataGridTextColumn x:Name="Key" Header="Key" Binding="{Binding Key}" Width="100" />
+                            <DataGridTextColumn x:Name="Modifier" Header="Modifier" Binding="{Binding Modifier}" Width="100" />
+                            <DataGridTemplateColumn CanUserSort="False" Width="*" Header="Key will switch to (Target Bar)">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Width="25px" Height="25px" Margin="1px" Source="{Binding BarDependency.Img}"/>
+                                            <TextBlock VerticalAlignment="Center" Margin="5,0,0,0" Text="{Binding BarDependency.Name}" FontWeight="Bold"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTextColumn x:Name="Amount1" Header="Occurances (Bars)" Binding="{Binding Occurances}" Width="110" />
+                            <DataGridTextColumn x:Name="Dependencies1" Header="Dependencies (Abilities)" Binding="{Binding Dependencies}" Width="140" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Ability Keybindings" x:Name="tabItem_Ability">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="9"/>
+                        <!--128.86-->
+                        <ColumnDefinition Width="188.86"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="10"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="1" Grid.Column="1" Margin="5,5,5,5" Grid.ColumnSpan="2">Select Ability:</Label>
+                    <ComboBox Grid.Row="1" Grid.Column="3" Margin="0,7,0,7" x:Name="cbx_AbilityToSelect" TextSearch.TextPath="Name">
+                        <!--https://stackoverflow.com/questions/2206069/how-to-select-item-by-typing-a-keyboard-letter-key-in-wpf-combobox-->
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="25px" Height="25px" Source="{Binding Img}"/>
+                                    <TextBlock VerticalAlignment="Center" Margin="5,0,0,0" Text="{Binding Name}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <Label Grid.Row="1" Grid.Column="4" Margin="5,5,5,5">Select Bar:</Label>
+                    <ComboBox Grid.Row="1" Grid.Column="5" Margin="0,7,107,7" x:Name="cbx_BarsToSelectForAbilityBinding" Grid.ColumnSpan="2">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="25px" Height="25px" Source="{Binding Img}"/>
+                                    <TextBlock VerticalAlignment="Center" Margin="5,0,0,0" Text="{Binding Name}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <Label Grid.Row="1" Grid.Column="6" Margin="5,5,5,5">Press Key:</Label>
+                    <TextBox Grid.Row="1" Grid.Column="7" Margin="5,5,5,5" IsReadOnly="true" x:Name="tbx_pressedKeyForAbilityBinding"></TextBox>
+
+                    <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="6" Margin="5,5,5,5" x:Name="lbl_InfoMessageForAbilityBinding"></Label>
+                    <Button Grid.Row="2" Grid.Column="7" x:Name="btn_AddAbilityKeybinding" Content="Add Keybind" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Center" Width="140" Click="btn_AddAbilityKeybinding_Click"/>
+
+                    <DataGrid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="7" Margin="5,5,5,5" x:Name="dgr_AbilityList" AlternationCount="2" CellStyle="{StaticResource Body_Content_DataGrid_Centering}" CanUserAddRows="false" CanUserDeleteRows="False" IsReadOnly="true" AutoGenerateColumns="False" VerticalScrollBarVisibility="Auto">
+                        <!-- https://stackoverflow.com/questions/3286583/how-to-add-context-menu-to-wpf-datagrid -->
+                        <DataGrid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Activate / Deactivate Selection" Click="Context_Abilities_ActivateSelection" IsCheckable="False">
+                                    <MenuItem.Icon>
+                                        <Image Source="./Images/MenuItems/CheckBoxGroup.png" />
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Header="Delete Selection" Click="Context_Abilities_DeleteSelection">
+                                    <MenuItem.Icon>
+                                        <Image Source="./Images/MenuItems/Delete.png" />
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn CanUserSort="True" Width="80" Header="   Is activated?">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox IsChecked="{Binding IsActivatedForCurrentProfile, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="True"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn CanUserSort="False" Width="auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Width="25px" Height="25px" Source="{Binding Ability.Img}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn x:Name="Ability2" Header="Ability" Binding="{Binding Ability.Name}" Width="180" FontWeight="Bold"/>
+                            <DataGridTemplateColumn CanUserSort="True" Width="80" Header="Is Bleed?">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox IsChecked="{Binding Ability.IsBleedAbility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="False"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn CanUserSort="False" Width="150" Header="Can Activate during GCD">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox IsChecked="{Binding Ability.CanActivateDuringGCD}" VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="False" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn x:Name="Key2" Header="Key" Binding="{Binding Key}" Width="100" />
+                            <DataGridTextColumn x:Name="Modifier2" Header="Modifier" Binding="{Binding Modifier}" Width="100" />
+                            <DataGridTemplateColumn CanUserSort="False" Width="auto">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Width="25px" Height="25px" Source="{Binding Bar.Img}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn x:Name="AbilityBar2" Header="Ability Bar" Binding="{Binding Bar.Name}" Width="100" />
+                            <DataGridTextColumn x:Name="Amount2" Header="Occurances (Abilties)" Binding="{Binding Occurances}" Width="120" />
+                            <DataGridTextColumn x:Name="Dependencies2" Header="Dependencies (Bars)" Binding="{Binding Dependencies}" Width="120" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <Border Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="6" BorderBrush="#400000" BorderThickness="2" Margin="0,5,10,5" />
+        <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="5">
+            <Label Margin="0,5,5,5" HorizontalAlignment="Right">Select Activation Profile:</Label>
+            <ComboBox Margin="0,7,5,7" x:Name="cbx_Profiles" FontSize="18" Width="200px" SelectionChanged="cbx_Profiles_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock VerticalAlignment="Center" Text="{Binding ProfileName}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Button x:Name="btn_AddNewProfile" Content="...or add new profile" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5" Width="220px" Click="btn_AddNewProfile_Click"/>
+        </StackPanel>
+        <!--<Label x:Name="lbl_ProfileInfo" FontSize="15" Grid.Row="2" Grid.Column="3" VerticalAlignment="Center">- Bars, - Abilities</Label>-->
+        <Button Grid.Row="2" Grid.Column="3" x:Name="btn_SaveActivationChanges" Content="Save Changes" HorizontalAlignment="Right" VerticalAlignment="Center" Width="160" Margin="5" Click="btn_SaveProfileChanges_Click"/>
+    </Grid>
+
+    <Window.InputBindings>
+        <KeyBinding Command="ApplicationCommands.Close" Key="Esc" />
+    </Window.InputBindings>
+
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommandBinding_Executed" />
+    </Window.CommandBindings>
+</Window>

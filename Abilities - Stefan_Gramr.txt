@@ -1,0 +1,28 @@
+!!!! TODO NEXT: BLEED T95 MAGE DW: !!!! 
+waffen spec berücksichtrigne, da bleed nur für dw
+- bleed aktualisiert wenn: weapon spec AND DW equipped
+
+
+
+
+Folgende Abilities müssen aktuell manuell nachgepflegt werden, da Wiki-Import aktuell nicht korrekt funktioniert. Siehe Punkt 
+"- Wiki-Import für bestimmte Ability-Entitäten wie zb Spells funktioniert nicht. Dies trifft sowohl auf diese Anwendung als auch das Original (Reddit-Link/GitHub-Link oben) zu. Auf Fix im Original warten. Solange müssen die Abilities und dazugehörige images aus der Datei "Abilities - Ausstehend.txt" im gleichen Ordner wie diese ReadMe.txt händisch eingefügt, importiert und keybinded werden."
+im Abschnitt "* * * * * * * * * * * * * * * * * * TO DO (New Features) : * * * * * * * * * * * * * * * * * *"
+in der ReadMe.txt-Datei.
+
+1 - shadow barrage
+a - augmented kalphite rebounder
+alt 1 - staff of sliske
+0 - Waffen DW MH
+; - Waffen DW OH
+h - intercept
+d - staff of armadyl
+5 - vuln bomb
+c - adrenaline renewal
+b - smoke cloud
+j - disruption shield
+m - spellbook swap
+
+k, o, l, i, n
+,, ., -
+f4, f3, f2, f1, alt 3, alt 4, 
